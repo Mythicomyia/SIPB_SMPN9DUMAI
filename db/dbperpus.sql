@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Jan 2020 pada 05.21
--- Versi Server: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Sep 15, 2024 at 09:02 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,11 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_peminjaman`
+-- Table structure for table `tbl_peminjaman`
 --
 
 CREATE TABLE `tbl_peminjaman` (
-  `id` int(10) NOT NULL,
   `nama_peminjam` varchar(30) NOT NULL,
   `jenis_kelamin` varchar(30) NOT NULL,
   `alamat` varchar(50) NOT NULL,
@@ -36,20 +36,21 @@ CREATE TABLE `tbl_peminjaman` (
   `tanggal_pinjam` date NOT NULL,
   `tanggal_kembali` date NOT NULL,
   `lama_pinjam` varchar(15) NOT NULL,
-  `keterangan` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `keterangan` varchar(50) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `tbl_peminjaman`
+-- Dumping data for table `tbl_peminjaman`
 --
 
-INSERT INTO `tbl_peminjaman` (`id`, `nama_peminjam`, `jenis_kelamin`, `alamat`, `no_hp`, `judul_buku`, `tanggal_pinjam`, `tanggal_kembali`, `lama_pinjam`, `keterangan`) VALUES
-(5, 'W', 'Perempuan', 'DFSFS', '08329842', 'JDSKFHK', '2020-01-19', '2020-01-21', '2', 'Sudah Dikembalikan');
+INSERT INTO `tbl_peminjaman` (`nama_peminjam`, `jenis_kelamin`, `alamat`, `no_hp`, `judul_buku`, `tanggal_pinjam`, `tanggal_kembali`, `lama_pinjam`, `keterangan`, `id`) VALUES
+('asep', 'Laki-Laki', 'jl. skakskd gg. asdasda', '08120380128', 'aspirant', '2024-09-10', '2024-09-14', '4', '', 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_user`
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -59,15 +60,15 @@ CREATE TABLE `tbl_user` (
   `nama` varchar(50) NOT NULL,
   `level` int(5) NOT NULL,
   `ket` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`username`, `paswd`, `email`, `nama`, `level`, `ket`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'admin', 1, 'admin'),
-('indi123', '671ecdc4e5615b37fb59247406c0b0fa', 'indirahmaini@gmail.com', 'indirahmaini', 1, 'ANGGOTA');
+('admin', 'admin', 'admin.smpn9dumai@gmail.co', 'edy', 1, 'ADMIN'),
+('mythicomyia', 'ADMIN', 'fitrahuljumas@gmail.com', 'FITRAHUL JUMA SAWIKA', 0, 'ANGGOTA');
 
 --
 -- Indexes for dumped tables
@@ -93,7 +94,9 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_peminjaman`
 --
 ALTER TABLE `tbl_peminjaman`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
