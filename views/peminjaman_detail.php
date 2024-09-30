@@ -17,34 +17,38 @@
 
                     <!--dalam tabel-->
                     <table class="table table-bordered table-striped table-hover"> 
-                        <tr>
-                            <td width="200">ID Peminjaman</td> <td><?= $data['id'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Nama Peminjam</td> <td><?= $data['nama_peminjam'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Jenis Kelamin</td> <td><?= $data['jenis_kelamin'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Alamat</td><td><?= $data['alamat'] ?></td>
-                        </tr>
-                         <tr>
-                            <td>No Handphone</td><td><?= $data['no_hp'] ?></td>
-                        </tr>
-                         <tr>
-                            <td>Judul Buku</td><td><?= $data['judul_buku'] ?></td>
-                        </tr>
-                         <tr>
-                            <td>Tanggal Pinjam</td><td><?= $data['tanggal_pinjam'] ?></td>
-                        </tr>
-						<tr>
-                            <td>Tanggal Kembali</td> <td><?= $data['tanggal_kembali'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Lama Pinjam</td> <td><?= $data['lama_pinjam'] ?></td>
-                        </tr>
-                    </table>
+    <tr>
+        <td width="200">ID Peminjaman</td> <td><?= $data['id'] ?></td>
+    </tr>
+    <tr>
+        <td>Nama Peminjam</td> <td><?= $data['nama_peminjam'] ?></td>
+    </tr>
+    <tr>
+        <td>Jenis Kelamin</td> <td><?= $data['jenis_kelamin'] ?></td>
+    </tr>
+    <tr>
+        <td>Alamat</td><td><?= $data['alamat'] ?></td>
+    </tr>
+    <tr>
+        <td>No Handphone</td><td><?= $data['no_hp'] ?></td>
+    </tr>
+    <tr>
+        <td>Judul Buku</td><td><?= $data['judul_buku'] ?></td>
+    </tr>
+    <tr>
+        <td>Tanggal Pinjam</td><td><?= $data['tanggal_pinjam'] ?></td>
+    </tr>
+    <tr>
+        <td>Tanggal Kembali</td> <td><?= $data['tanggal_kembali'] ?></td>
+    </tr>
+    <tr>
+        <td>Lama Pinjam</td> <td><?= $data['lama_pinjam'] ?></td>
+    </tr>
+    <tr>
+        <td>Keterangan</td> <td><?= $data['keterangan'] ?></td>
+    </tr>
+</table>
+
 				
                 </div> <!--end panel-body-->
                 <!--panel footer--> 

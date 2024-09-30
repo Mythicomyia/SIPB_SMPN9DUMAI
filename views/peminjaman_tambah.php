@@ -72,23 +72,34 @@
 </div>
 
 <?php
-if($_POST){
-    //Ambil data dari form
-    $nama_peminjam =$_POST['nama_peminjam'];
-    $jenis_kelamin =$_POST['jenis_kelamin'];
-    $alamat =$_POST['alamat'];
-    $no_hp =$_POST['no_hp'];
-    $judul_buku =$_POST['judul_buku'];
-    $tanggal_pinjam =$_POST['tanggal_pinjam'];
-    //buat sql
-    $sql = "INSERT INTO tbl_peminjaman (nama_peminjam, jenis_kelamin, alamat, no_hp, judul_buku, tanggal_pinjam) 
-    VALUES ('$nama_peminjam', '$jenis_kelamin', '$alamat', '$no_hp', '$judul_buku', '$tanggal_pinjam')";
-    $query= mysqli_query ($koneksi, $sql,);
-    if ($query){
+if ($_POST) {
+    // Ambil data dari form
+    $nama_peminjam = $_POST['nama_peminjam'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $alamat = $_POST['alamat'];
+    $no_hp = $_POST['no_hp'];
+    $judul_buku = $_POST['judul_buku'];
+    $tanggal_pinjam = $_POST['tanggal_pinjam'];
+
+    // Hitung tanggal kembali, 3 hari setelah tanggal pinjam
+    $tanggal_kembali = date('Y-m-d', strtotime($tanggal_pinjam . ' + 3 days'));
+
+    // Hitung lama pinjam
+    $lama_pinjam = (strtotime($tanggal_kembali) - strtotime($tanggal_pinjam)) / (60 * 60 * 24); // dalam hari
+
+    // Keterangan kosong
+    $keterangan = '';
+
+    $sql = "INSERT INTO tbl_peminjaman (nama_peminjam, jenis_kelamin, alamat, no_hp, judul_buku, tanggal_pinjam, tanggal_kembali, lama_pinjam, keterangan) 
+    VALUES ('$nama_peminjam', '$jenis_kelamin', '$alamat', '$no_hp', '$judul_buku', '$tanggal_pinjam', '$tanggal_kembali', '$lama_pinjam', '$keterangan')";    
+
+    $query = mysqli_query($koneksi, $sql);
+    if ($query) {
         echo "<script>window.location.assign('?page=peminjaman&actions=tampil');</script>";
-    }else{
-        echo "<script>alert('Simpan Data Gagal');<script>";
+    } else {
+        echo "<script>alert('Simpan Data Gagal');</script>";
     }
-    }
+}
 
 ?>
+
